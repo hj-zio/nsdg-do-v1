@@ -122,7 +122,7 @@ function renderServiceStatusList(statusList, elementId) {
 
 function formatTimestamp(timestamp) {
     const time = new Date(timestamp);
-    const hours = (time.getUTCHours() + 9) % 24;
+    const hours = (time.getUTCHours()) % 24;
     const minutes = time.getUTCMinutes();
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
 }

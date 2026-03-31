@@ -1,0 +1,217 @@
+@import url('https://static.toss.im/tps/main.css');
+@import url('https://static.toss.im/tps/others.css');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url('https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css');
+
+/* 기본 폰트 설정 */
+body {
+    font-family: 'Toss Product Sans';
+    font-weight: 500;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 104%;
+}
+
+.full-height {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+.tossface {
+    font-family: 'Tossface';
+    font-size: 30px;
+}
+
+.pretendard-100 {
+    font-family: 'Toss Product Sans';
+    font-weight: 100;
+}
+
+.pretendard-200 {
+    font-family: 'Toss Product Sans';
+    font-weight: 200;
+}
+
+.pretendard-300 {
+    font-family: 'Toss Product Sans';
+    font-weight: 300;
+}
+
+.pretendard-400 {
+    font-family: 'Toss Product Sans';
+    font-weight: 400;
+}
+
+.pretendard-500 {
+    font-family: 'Toss Product Sans';
+    font-weight: 500;
+}
+
+.pretendard-600 {
+    font-family: 'Toss Product Sans';
+    font-weight: 600;
+}
+
+.pretendard-700 {
+    font-family: 'Toss Product Sans';
+    font-weight: 700;
+}
+
+.pretendard-800 {
+    font-family: 'Toss Product Sans';
+    font-weight: 800;
+}
+
+.pretendard-900 {
+    font-family: 'Toss Product Sans';
+    font-weight: 900;
+}
+
+:root {
+    /* Primary Colors */
+    --primary-0: #FFFFFF;
+    --primary-5: #EFF5FF;
+    --primary-10: #D3E1FB;
+    --primary-20: #A7C4F7;
+    --primary-30: #7CA6F3;
+    --primary-40: #5089EF;
+    --primary-50: #246BEB;
+    --primary-60: #1D56BC;
+    --primary-70: #16408D;
+    --primary-80: #0E2B5E;
+    --primary-90: #07152F;
+    --primary-100: #000000;
+
+    /* Gray Colors */
+    --gray-0: #FFFFFF;
+    --gray-5: #F8F8F8;
+    --gray-10: #F0F0F0;
+    --gray-20: #E4E4E4;
+    --gray-30: #D8D8D8;
+    --gray-40: #C6C6C6;
+    --gray-50: #8E8E8E;
+    --gray-60: #717171;
+    --gray-70: #555555;
+    --gray-80: #2D2D2D;
+    --gray-90: #1D1D1D;
+    --gray-100: #000000;
+
+    /* Secondary Colors */
+    --secondary-0: #FFFFFF;
+    --secondary-5: #EDF1F5;
+    --secondary-10: #CDD7E4;
+    --secondary-20: #B4C4D6;
+    --secondary-30: #99B0CB;
+    --secondary-40: #2A5C96;
+    --secondary-50: #003675;
+    --secondary-60: #002B5E;
+    --secondary-70: #002046;
+    --secondary-80: #00162F;
+    --secondary-90: #000B17;
+    --secondary-100: #000000;
+
+    /* System Colors */
+    --system-danger: #EB003B;
+    --system-warning: #FFB724;
+    --system-success: #008A1E;
+    --system-information: #2768FF;
+}
+
+/* Primary Colors */
+.primary-0 { color: var(--primary-0); }
+.primary-5 { color: var(--primary-5); }
+.primary-10 { color: var(--primary-10); }
+.primary-20 { color: var(--primary-20); }
+.primary-30 { color: var(--primary-30); }
+.primary-40 { color: var(--primary-40); }
+.primary-50 { color: var(--primary-50); }
+.primary-60 { color: var(--primary-60); }
+.primary-70 { color: var(--primary-70); }
+.primary-80 { color: var(--primary-80); }
+.primary-90 { color: var(--primary-90); }
+.primary-100 { color: var(--primary-100); }
+
+/* Gray Colors */
+.gray-0 { color: var(--gray-0); }
+.gray-5 { color: var(--gray-5); }
+.gray-10 { color: var(--gray-10); }
+.gray-20 { color: var(--gray-20); }
+.gray-30 { color: var(--gray-30); }
+.gray-40 { color: var(--gray-40); }
+.gray-50 { color: var(--gray-50); }
+.gray-60 { color: var(--gray-60); }
+.gray-70 { color: var(--gray-70); }
+.gray-80 { color: var(--gray-80); }
+.gray-90 { color: var(--gray-90); }
+.gray-100 { color: var(--gray-100); }
+
+/* Secondary Colors */
+.secondary-0 { color: var(--secondary-0); }
+.secondary-5 { color: var(--secondary-5); }
+.secondary-10 { color: var(--secondary-10); }
+.secondary-20 { color: var(--secondary-20); }
+.secondary-30 { color: var(--secondary-30); }
+.secondary-40 { color: var(--secondary-40); }
+.secondary-50 { color: var(--secondary-50); }
+.secondary-60 { color: var(--secondary-60); }
+.secondary-70 { color: var(--secondary-70); }
+.secondary-80 { color: var(--secondary-80); }
+.secondary-90 { color: var(--secondary-90); }
+.secondary-100 { color: var(--secondary-100); }
+
+/* System Colors */
+.system-danger { color: var(--system-danger); }
+.system-warning { color: var(--system-warning); }
+.system-success { color: var(--system-success); }
+.system-information { color: var(--system-information); }
+
+/* 배경색을 색상 변수에 적용 */
+.bg-primary-0 { background-color: var(--primary-0); }
+.bg-primary-5 { background-color: var(--primary-5); }
+.bg-primary-10 { background-color: var(--primary-10); }
+.bg-primary-20 { background-color: var(--primary-20); }
+.bg-primary-30 { background-color: var(--primary-30); }
+.bg-primary-40 { background-color: var(--primary-40); }
+.bg-primary-50 { background-color: var(--primary-50); }
+.bg-primary-60 { background-color: var(--primary-60); }
+.bg-primary-70 { background-color: var(--primary-70); }
+.bg-primary-80 { background-color: var(--primary-80); }
+.bg-primary-90 { background-color: var(--primary-90); }
+.bg-primary-100 { background-color: var(--primary-100); }
+
+/* 배경색을 색상 변수에 적용 */
+.bg-gray-0 { background-color: var(--gray-0); }
+.bg-gray-5 { background-color: var(--gray-5); }
+.bg-gray-10 { background-color: var(--gray-10); }
+.bg-gray-20 { background-color: var(--gray-20); }
+.bg-gray-30 { background-color: var(--gray-30); }
+.bg-gray-40 { background-color: var(--gray-40); }
+.bg-gray-50 { background-color: var(--gray-50); }
+.bg-gray-60 { background-color: var(--gray-60); }
+.bg-gray-70 { background-color: var(--gray-70); }
+.bg-gray-80 { background-color: var(--gray-80); }
+.bg-gray-90 { background-color: var(--gray-90); }
+.bg-gray-100 { background-color: var(--gray-100); }
+
+/* 배경색을 색상 변수에 적용 */
+.bg-secondary-0 { background-color: var(--secondary-0); }
+.bg-secondary-5 { background-color: var(--secondary-5); }
+.bg-secondary-10 { background-color: var(--secondary-10); }
+.bg-secondary-20 { background-color: var(--secondary-20); }
+.bg-secondary-30 { background-color: var(--secondary-30); }
+.bg-secondary-40 { background-color: var(--secondary-40); }
+.bg-secondary-50 { background-color: var(--secondary-50); }
+.bg-secondary-60 { background-color: var(--secondary-60); }
+.bg-secondary-70 { background-color: var(--secondary-70); }
+.bg-secondary-80 { background-color: var(--secondary-80); }
+.bg-secondary-90 { background-color: var(--secondary-90); }
+.bg-secondary-100 { background-color: var(--secondary-100); }
+
+/* 시스템 색상 적용 */
+.bg-system-danger { background-color: var(--system-danger); }
+.bg-system-warning { background-color: var(--system-warning); }
+.bg-system-success { background-color: var(--system-success); }
+.bg-system-information { background-color: var(--system-information); }

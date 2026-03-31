@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/resources/do_circle.svg">
+    <title>DO :: 프로필</title>
+
+    <meta name="title" content="DO">
+    <meta name="description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:title" content="DO">
+    <meta property="og:description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:image" content="/resources/og_image.png">
+    <meta property="og:url" content="v5.dghs.site">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCZ7CDL7SL"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-KCZ7CDL7SL'); 
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/views/js/profile.js"></script>
+    <script>
+        function setVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVh);
+        document.addEventListener('DOMContentLoaded', setVh);
+        setVh();
+    </script>
+    <link rel="stylesheet" href="/views/css/defalut.css">
+</head>
+
+<body>
+    <div class="relative flex flex-col items-center justify-start gap-5 overflow-x-hidden overflow-y-hidden w-full full-height text-[20px] text-gray-700 bg-gray-100">
+        <div id="TOP_AREA" class="relative flex flex-row flex-nowrap flex-grow-0 flex-shrink-0 basis-auto items-end justify-start w-full h-[80px] max-w-[600px] sm:w-[100%] md:w-[70%] lg:w-[50%] overflow-x-hidden overflow-y-hidden px-[20px]">
+            <p class="text-[24px] sm:text-[26px] text-gray-800 pretendard-700">프로필</p>
+        </div>
+
+        <div id="CONTENT_AREA" class="relative flex flex-col flex-nowrap flex-grow flex-shrink-0 basis-0 items-start justify-start w-full h-[1fr] max-w-[600px] sm:w-[100%] md:w-[70%] lg:w-[50%] overflow-x-auto overflow-y-auto px-[20px] space-y-5">
+            <div id="profile" class="w-full space-y-5">
+                <div class="flex flex-row items-center justify-between w-full p-4 space-x-5 bg-white rounded-md">
+                    <img id="profile_img" class="flex-none w-[48px] h-[48px] rounded-full" src="/resources/profile.png">
+                    <div class="flex-1">
+                        <div class="flex flex-col space-y-1">
+                            <div class="flex items-center text-[20px] sm:text-[22px] text-gray-700 pretendard-700">
+                                <div id="user_name">
+                                    <div class="w-[100px] h-[30px] rounded bg-gray-300 animate-pulse"></div>
+                                </div>
+                                <div id="user_badge" class="ms-2 px-2 rounded bg-blue-100 text-[16px] text-blue-600 pretendard-600"></div>
+                            </div>
+                            <div id="user_numbers" class="text-[14px] sm:text-[16px] text-gray-600 pretendard-500">
+                                <div class="w-[150px] h-6 rounded bg-gray-300 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-2 border border-gray-200"></div>
+                <div class="flex flex-col">
+                    <div class="flex flex-col space-y-4">
+                        <span class="text-[14px] sm:text-[16px] text-gray-500 pretendard-600">계정</span>
+                        <span class="flex items-center bg-white text-[16px] sm:text-[18px] text-gray-700 pretendard-500 px-3 py-2 rounded hover:bg-gray-200 transition-all duration-100 ease-in-out" onclick="location.href='/schoolNumber'">
+                            <span class="tossface text-[20px] sm:text-[22px]">🏫</span>
+                            <span class="ms-3 ml-2">학번 등록 및 변경하기</span>
+                        </span>
+                        <span class="flex items-center bg-white text-[16px] sm:text-[18px] text-gray-700 pretendard-500 px-3 py-2 rounded hover:bg-gray-200 transition-all duration-100 ease-in-out" onclick="location.href='/api/logout'">
+                            <span class="tossface text-[20px] sm:text-[22px]">🔒</span>
+                            <span class="ms-3 ml-2">로그아웃</span>
+                        </span>
+                        <span class="text-[14px] sm:text-[16px] text-gray-500 pretendard-600">건강</span>
+                        <span class="flex items-center bg-white text-[16px] sm:text-[18px] text-gray-700 pretendard-500 px-3 py-2 rounded hover:bg-gray-200 transition-all duration-100 ease-in-out" onclick="location.href='/allergy'">
+                            <span class="tossface text-[20px] sm:text-[22px]">🏥</span>
+                            <span class="ms-3 ml-2">알레르기 등록 및 변경하기</span>
+                        </span>
+                        <span class="text-[14px] sm:text-[16px] text-gray-500 pretendard-600">선생님</span>
+                        <span class="flex items-center bg-white text-[16px] sm:text-[18px] text-gray-700 pretendard-500 px-3 py-2 rounded hover:bg-gray-200 transition-all duration-100 ease-in-out" onclick="location.href='/teacher/studentTimetable'">
+                            <span class="tossface text-[20px] sm:text-[22px]">📚</span>
+                            <span class="ms-3 ml-2">학생 시간표 조회하기</span>
+                        </span>
+                        </span>
+                        <span class="text-[14px] sm:text-[16px] text-gray-500 pretendard-600">분실물</span>
+                        <span class="flex items-center bg-white text-[16px] sm:text-[18px] text-gray-700 pretendard-500 px-3 py-2 rounded hover:bg-gray-200 transition-all duration-100 ease-in-out" onclick="location.href='/lostItem'">
+                            <span class="tossface text-[20px] sm:text-[22px]">🪧</span>
+                            <span class="ms-3 ml-2">분실물 게시판 바로가기</span>
+                        </span>
+                        <!-- <span class="text-[14px] sm:text-[16px] text-gray-500 pretendard-600">문의</span>
+                        <span class="flex items-center bg-white text-[16px] sm:text-[18px] text-gray-700 pretendard-500 px-3 py-2 rounded hover:bg-gray-200 transition-all duration-100 ease-in-out" onclick="location.href='/feedback'">
+                            <span class="tossface text-[20px] sm:text-[22px]">✨</span>
+                            <span class="ms-3 ml-2">피드백 남기기</span>
+                        </span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="BOTTOM_AREA" class="relative flex flex-col flex-nowrap flex-grow-0 flex-shrink-0 basis-auto items-start justify-end w-full h-[80px] max-w-[600px] sm:w-[100%] md:w-[70%] lg:w-[50%] overflow-x-hidden overflow-y-hidden px-[1px] space-y-5">
+            <div class="flex flex-row items-center justify-between w-full h-[79px] rounded-tl-[25px] rounded-tr-[25px] bg-gray-0" style="outline: 1px solid var(--gray-20);">
+                <div class="flex-1 text-center rounded-[30px] pt-2 pb-2 ms-3 me-3 group active:scale-95 hover:bg-gray-100 transition-all duration-100 ease-in-out" onclick="location.href='/'">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[23px] w-[23px] mx-auto text-gray-500 group-hover:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+                        <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+                    </svg>
+                    <span class="text-[13px] sm:text-[15px] text-gray-500 pretendard-600 group-hover:text-blue-600">홈</span>
+                </div>
+
+                <div class="flex-1 text-center rounded-[30px] pt-2 pb-2 ms-3 me-3 group active:scale-95 hover:bg-gray-100 transition-all duration-100 ease-in-out" onclick="location.href='/timetable'">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[23px] w-[23px] mx-auto text-gray-500 group-hover:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
+                        <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
+                        <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
+                    </svg>
+                    <span class="text-[13px] sm:text-[15px] text-gray-500 pretendard-600 group-hover:text-blue-600">시간표</span>
+                </div>
+
+                <div class="flex-1 text-center rounded-[30px] pt-2 pb-2 ms-3 me-3 group active:scale-95 hover:bg-gray-100 transition-all duration-100 ease-in-out" onclick="location.href='/meal'">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[23px] w-[23px] mx-auto text-gray-500 group-hover:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-[13px] sm:text-[15px] text-gray-500 pretendard-600 group-hover:text-blue-600">급식</span>
+                </div>
+
+                <div class="flex-1 text-center rounded-[30px] pt-2 pb-2 ms-3 me-3 group active:scale-95 hover:bg-gray-100 transition-all duration-100 ease-in-out" onclick="location.href='/schedule'">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[23px] w-[23px] mx-auto text-gray-500 group-hover:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+                        <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-[13px] sm:text-[15px] text-gray-500 pretendard-600 group-hover:text-blue-600">
+                        <span class="text-[13px] sm:text-[0px]">일정</span>
+                        <span class="text-[0px] sm:text-[15px]">학사일정</span>
+                    </span>
+                </div>
+
+                <div class="flex-1 text-center rounded-[30px] pt-2 pb-2 ms-3 me-3 group active:scale-95 hover:bg-gray-100 transition-all duration-100 ease-in-out" onclick="location.href='/profile'">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[23px] w-[23px] mx-auto text-gray-500 group-hover:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-[13px] sm:text-[15px] text-gray-500 pretendard-600 group-hover:text-blue-600">프로필</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

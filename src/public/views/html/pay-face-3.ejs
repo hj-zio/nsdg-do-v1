@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/resources/do_circle.svg">
+    <title>DO :: 비밀번호 등록</title>
+
+    <meta name="title" content="DO">
+    <meta name="description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:title" content="DO">
+    <meta property="og:description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:image" content="/resources/og_image.png">
+    <meta property="og:url" content="v5.dghs.site">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCZ7CDL7SL"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-KCZ7CDL7SL'); 
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/views/js/pay-password.js"></script>
+    <script>
+        function setVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVh);
+        document.addEventListener('DOMContentLoaded', setVh);
+        setVh();
+    </script>
+    <link rel="stylesheet" href="/views/css/defalut.css">
+</head>
+
+<body>
+    <div class="
+        relative flex flex-col items-center justify-start
+        overflow-x-hidden overflow-y-hidden
+        gap-5 text-[20px] text-gray-700 bg-gray-100 w-full full-height">
+
+        <div id="CONTENT_AREA" class="
+            relative flex flex-col justify-center items-center
+            flex-nowrap 
+            flex-grow flex-shrink-0 basis-0
+            h-[1fr] max-w-[600px]
+            overflow-x-auto overflow-y-auto
+            px-[20px] space-y-3
+            w-full sm:w-[100%] md:w-[70%] lg:w-[50%]">
+            <div id="intro_box" class="flex flex-col items-center">
+                <span id="pin_title" class="text-[20px] sm:text-[22px] pretendard-600 text-gray-800">얼굴 인증 시 사용할</span>
+                <span id="pin_title2" class="text-[20px] sm:text-[22px] pretendard-600 text-gray-800">비밀번호를 입력해주세요.</span>
+                <span id="pin_subtitle" class="text-[16px] sm:text-[18px] pretendard-500 text-gray-600">숫자 4자리</span>
+            </div>
+            
+            <div id="digit_input" class="flex flex-row items-center space-x-1 p-3 w-fit h-fit">
+                <span id="dot-0" class="pin-dot flex items-center justify-center p-3 rounded-lg text-gray-300">
+                    <svg viewBox="0 0 200 200" width="20" height="20">
+                        <circle cx="100" cy="100" r="65" fill="currentColor" />
+                    </svg>
+                </span>
+                <span id="dot-1" class="pin-dot flex items-center justify-center p-3 rounded-lg text-gray-300">
+                    <svg viewBox="0 0 200 200" width="20" height="20">
+                        <circle cx="100" cy="100" r="65" fill="currentColor" />
+                    </svg>
+                </span>
+                <span id="dot-2" class="pin-dot flex items-center justify-center p-3 rounded-lg text-gray-300">
+                    <svg viewBox="0 0 200 200" width="20" height="20">
+                        <circle cx="100" cy="100" r="65" fill="currentColor" />
+                    </svg>
+                </span>
+                <span id="dot-3" class="pin-dot flex items-center justify-center p-3 rounded-lg text-gray-300">
+                    <svg viewBox="0 0 200 200" width="20" height="20">
+                        <circle cx="100" cy="100" r="65" fill="currentColor" />
+                    </svg>
+                </span>
+            </div>
+            
+            <div id="digit_keyboard" class="flex flex-col bg-white space-y-1 px-5 max-w-[330px] w-full h-fit rounded-xl">
+                <div class="flex gap-3 p-3 w-full">
+                    <span id="btn-1"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">1</span>
+                    <span id="btn-2"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">2</span>
+                    <span id="btn-3"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">3</span>
+                </div>
+                <div class="flex gap-3 p-3 w-full">
+                    <span id="btn-4"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">4</span>
+                    <span id="btn-5"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">5</span>
+                    <span id="btn-6"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">6</span>
+                </div>
+                <div class="flex gap-3 p-3 w-full">
+                    <span id="btn-7"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">7</span>
+                    <span id="btn-8"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">8</span>
+                    <span id="btn-9"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">9</span>
+                </div>
+                <div class="flex gap-3 p-3 w-full">
+                    <span class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white invisible">0</span>
+                    <span id="btn-0"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">0</span>
+                    <span id="btn-back"
+                        class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-90">←</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

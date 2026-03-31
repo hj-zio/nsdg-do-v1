@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/resources/do_circle.svg">
+    <title>DO :: 키오스크</title>
+
+    <meta name="title" content="DO">
+    <meta name="description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:title" content="DO">
+    <meta property="og:description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:image" content="/resources/og_image.png">
+    <meta property="og:url" content="v5.dghs.site">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCZ7CDL7SL"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-KCZ7CDL7SL'); 
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/views/js/store-kiosk.js"></script>
+    <script>
+        function setVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVh);
+        document.addEventListener('DOMContentLoaded', setVh);
+        setVh();
+    </script>
+    <link rel="stylesheet" href="/views/css/defalut.css">
+</head>
+
+<body>
+    <div class="
+        relative flex flex-col items-center justify-start
+        overflow-x-hidden overflow-y-hidden
+        gap-5 text-[20px] text-gray-700 bg-gray-100 w-full full-height">
+
+        <div id="CONTENT_AREA" class="
+            relative flex flex-col justify-start items-start
+            flex-nowrap 
+            flex-grow flex-shrink-0 basis-0
+            h-[1fr] max-w-[900px]
+            overflow-x-auto overflow-y-auto
+            w-full">
+            <div id="startPage" class="flex flex-col justify-between items-start w-full h-full px-[20px] py-[90px]">
+                <div class="flex flex-col space-y-2">
+                    <span class="text-[34px] sm:text-[36px] text-gray-800 pretendard-700 leading-none">반가워요.</span>
+                    <span class="text-[34px] sm:text-[36px] text-gray-800 pretendard-700 leading-none">계산을 시작할게요.</span>
+                    <span class="text-[30px] sm:text-[32px] text-gray-800 pretendard-600 leading-none">Order Here</span>
+                </div>
+                <div class="flex flex-col items-center justify-center w-full h-[240px] cursor-pointer rounded-xl bg-gray-0 px-3 py-2 transition-all duration-100 ease-in-out hover:bg-gray-50 active:scale-95"
+                    onclick="addHidden('startPage'); removeHidden('paymentPage'); payInit(); playStartSound();">
+                    <span class="text-[44px] sm:text-[46px] tossface">🛍️</span>
+                    <span class="text-[22px] sm:text-[24px] text-gray-600 pretendard-600 leading-none">
+                        시작하기
+                    </span>
+                </div>
+            </div>
+            <div id="paymentPage" class="hidden flex flex-col justify-between items-start w-full h-full">
+                <div class="flex flex-row justify-between items-center w-full h-[80px] p-4 bg-white">
+                    <div class="flex flex-row justify-start items-center space-x-3">
+                        <img id="face_img" class="flex-none w-[48px] h-[48px] rounded-full" src="/resources/profile.png">
+                        <span id="face_content" class="text-[18px] sm:text-[20px] text-gray-600 pretendard-400">얼굴인식중</span>
+                    </div>
+                    <div id="face_scan" class="px-3 py-2 text-[16px] sm:text-[18px] text-gray-500 pretendard-400 rounded-xl hover:bg-gray-50 transition-all duration-100 ease-in-out active:scale-95 cursor-pointer" onclick="payInit()">얼굴 다시 인식하기</div>
+                </div>
+                <div class="flex flex-col justify-start items-start w-full flex-1 px-[20px] py-[15px] overflow-y-hidden">
+                    <div class="flex flex-row justify-between items-center w-full h-fit">
+                        <span class="text-[16px] sm:text-[18px] text-gray-600 pretendard-400">상품의 바코드를 스캔해주세요.</span>
+                        <div class="px-3 py-2 text-[16px] sm:text-[18px] text-gray-500 pretendard-400 rounded-xl hover:text-blue-500 transition-all duration-100 ease-in-out active:scale-95 cursor-pointer" onclick="resetCart()">상품 전체삭제</div>
+                    </div>
+                    <div id="product_list" class="flex flex-col justify-start items-center w-full flex-1 space-y-3 overflow-y-scroll">
+                        <div class="flex flex-row justify-between items-center w-full space-x-5 px-4 py-3 h-fit bg-white rounded-lg">
+                            <span class="text-[16px] sm:text-[18px] text-gray-600 pretendard-400">상품 바코드를 스캔해주세요.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row justify-between items-center w-full h-[100px] p-4 space-x-3 bg-white">
+                    <div class="flex flex-col">
+                        <span class="text-[16px] sm:text-[18px] text-gray-700 pretendard-500">결제금액, <span id='total_quantity'>0</span>개 상품</span>
+                        <span id="total_price" class="text-[18px] sm:text-[20px] text-blue-500 pretendard-700">0원</span>
+                    </div>
+                    <div class="flex flex-row space-x-2">
+                        <span class="m-0 text-center px-3 py-2 text-[14px] sm:text-[16px] text-gray-600 pretendard-400 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all duration-100 ease-in-out active:scale-95 cursor-pointer" onclick="location.href='/store/kiosk'">그만하기</span>
+                        <span class="m-0 text-center px-3 py-2 text-[14px] sm:text-[16px] text-blue-600 pretendard-400 rounded-lg bg-blue-100 hover:bg-blue-200 transition-all duration-100 ease-in-out active:scale-95 cursor-pointer" onclick="passwordInit()">결제하기</span>
+                    </div>
+                </div>
+            </div>
+            <div id="passwordPage" class="hidden flex flex-col justify-center items-center w-full h-full">
+                <div id="intro_box" class="flex flex-col items-center">
+                    <span id="pin_title" class="text-[20px] sm:text-[22px] pretendard-600 text-gray-800">
+                        결제를 위해
+                    </span>
+                    <span id="pin_title2" class="text-[20px] sm:text-[22px] pretendard-600 text-gray-800">
+                        비밀번호를 입력해주세요.
+                    </span>
+                    <span id="pin_subtitle" class="text-[16px] sm:text-[18px] pretendard-500 text-gray-600">
+                        숫자 4자리
+                    </span>
+                </div>
+                
+                <div id="digit_input" class="flex flex-row items-center space-x-1 p-3 w-fit h-fit">
+                    <span id="dot-0" class="pin-dot flex items-center justify-center p-3 rounded-lg text-gray-300">
+                        <svg viewBox="0 0 200 200" width="20" height="20">
+                            <circle cx="100" cy="100" r="65" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <span id="dot-1" class="pin-dot flex items-center justify-center p-3 rounded-lg text-gray-300">
+                        <svg viewBox="0 0 200 200" width="20" height="20">
+                            <circle cx="100" cy="100" r="65" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <span id="dot-2" class="pin-dot flex items-center justify-center p-3 rounded-lg text-gray-300">
+                        <svg viewBox="0 0 200 200" width="20" height="20">
+                            <circle cx="100" cy="100" r="65" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <span id="dot-3" class="pin-dot flex items-center justify-center p-3 rounded-lg text-gray-300">
+                        <svg viewBox="0 0 200 200" width="20" height="20">
+                            <circle cx="100" cy="100" r="65" fill="currentColor" />
+                        </svg>
+                    </span>
+                </div>
+                
+                <div id="digit_keyboard" class="flex flex-col bg-white space-y-1 px-5 max-w-[330px] w-full h-fit rounded-xl">
+                    <div class="flex gap-3 p-3 w-full">
+                        <span id="btn-1"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">1</span>
+                        <span id="btn-2"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">2</span>
+                        <span id="btn-3"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">3</span>
+                    </div>
+                    <div class="flex gap-3 p-3 w-full">
+                        <span id="btn-4"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">4</span>
+                        <span id="btn-5"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">5</span>
+                        <span id="btn-6"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">6</span>
+                    </div>
+                    <div class="flex gap-3 p-3 w-full">
+                        <span id="btn-7"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">7</span>
+                        <span id="btn-8"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">8</span>
+                        <span id="btn-9"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">9</span>
+                    </div>
+                    <div class="flex gap-3 p-3 w-full">
+                        <span class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white invisible">0</span>
+                        <span id="btn-0"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">0</span>
+                        <span id="btn-back"
+                            class="flex-1 basis-1/3 h-fit py-3 rounded-lg bg-white text-[20px] sm:text-[22px] pretendard-600 text-gray-700 text-center cursor-pointer">←</span>
+                    </div>
+                </div>
+            </div>
+            <div id="successPage" class="hidden flex flex-col justify-center items-center w-full h-full">
+                <span class="text-[70px] tossface">✅</span>
+                <span id="success_title" class="text-[22px] sm:text-[24px] text-gray-700 pretendard-600">결제를 완료했어요.</span>
+            </div>
+            <div id="failPage" class="hidden flex flex-col justify-center items-center w-full h-full">
+                <span class="text-[70px] tossface">⚠️</span>
+                <span id="fail_title" class="text-[22px] sm:text-[24px] text-gray-700 pretendard-600">결제를 실패했어요.</span>
+                <span id="fail_subtitle" class="text-[20px] sm:text-[22px] text-gray-600 pretendard-500"></span>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="fixed inset-0 z-40 bg-black/50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-6 w-11/12 max-w-md transition-all ease-in-out duration-100">
+            <div id="modal_title" class="text-[18px] sm:text-[20px] pretendard-600 text-gray-600 mb-4 block">
+            </div>
+            <div id="modal_content" class="text-[14px] sm:text-[16px] pretendard-500 text-gray-600 block">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

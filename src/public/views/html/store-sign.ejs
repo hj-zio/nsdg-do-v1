@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/resources/do_circle.svg">
+    <title>DO :: 매장 등록</title>
+
+    <meta name="title" content="DO">
+    <meta name="description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:title" content="DO">
+    <meta property="og:description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:image" content="/resources/og_image.png">
+    <meta property="og:url" content="v5.dghs.site">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCZ7CDL7SL"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-KCZ7CDL7SL'); 
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/views/js/store-sign.js"></script>
+    <script>
+        function setVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVh);
+        document.addEventListener('DOMContentLoaded', setVh);
+        setVh();
+    </script>
+    <link rel="stylesheet" href="/views/css/defalut.css">
+</head>
+
+<body>
+    <div class="
+        relative flex flex-col items-center justify-start
+        overflow-x-hidden overflow-y-hidden
+        gap-5 text-[20px] text-gray-700 bg-gray-100 w-full full-height">
+
+        <div id="TOP_AREA" class="
+            relative flex justify-start items-end
+            flex-row flex-nowrap 
+            flex-grow-0 flex-shrink-0 basis-auto
+            h-[80px] max-w-[600px] 
+            overflow-x-hidden overflow-y-hidden
+            px-[20px]
+            w-full sm:w-[100%] md:w-[70%] lg:w-[50%]">
+            <img src="/resources/do_logo.png" width="32" height="32" onclick="location.href='/'">
+        </div>
+
+        <div id="CONTENT_AREA" class="
+            relative flex flex-col justify-start items-start
+            flex-nowrap 
+            flex-grow flex-shrink-0 basis-0
+            h-[1fr] max-w-[600px]
+            overflow-x-auto overflow-y-auto
+            px-[20px] space-y-5
+            w-full sm:w-[100%] md:w-[70%] lg:w-[50%]">
+            <div id="intro_box" class="space-y-1">
+                <p class="text-[22px] sm:text-[24px] pretendard-700 text-gray-800">
+                    매장 정보를 입력해주세요.
+                </p>
+                <p class="text-[18px] sm:text-[20px] pretendard-500 text-gray-700">
+                    한번 등록하면 수정할 수 없어요.
+                </p>
+            </div>
+            <div id="input_box" class="flex flex-col space-y-2 w-full h-fit bg-white p-4 rounded-xl">
+                <input id="input_name" type="text" placeholder="매장명을 입력해주세요."
+                    class="text-[18px] sm:text-[20px] text-gray-800 pretendard-500 bg-transparent border-none outline-none"/>
+                <div id="status_line1" class="w-full h-px bg-gray-300"></div>
+            </div>
+        </div>
+        <div id="BOTTOM_AREA" class="
+            relative flex flex-col justify-end items-start
+            flex-nowrap 
+            flex-grow-0 flex-shrink-0 basis-auto
+            h-[100px] max-w-[600px]
+            overflow-x-hidden overflow-y-hidden
+            px-[20px] pb-[50px] space-y-5
+            w-full sm:w-[100%] md:w-[70%] lg:w-[50%]">
+            <button class="
+                w-[100%] h-[48px] text-[18px] rounded-[18px] bg-blue-600
+                text-white text-center pretendard-500
+                sm:h-[54px] sm:text-[20px]
+                active:scale-95 hover:bg-blue-700 transition-all duration-100 ease-in-out"
+                onclick="createStore()">
+                확인
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/resources/do_circle.svg">
+    <title>DO :: 알레르기 등록</title>
+
+    <meta name="title" content="DO">
+    <meta name="description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:title" content="DO">
+    <meta property="og:description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:image" content="/resources/og_image.png">
+    <meta property="og:url" content="v5.dghs.site">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCZ7CDL7SL"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-KCZ7CDL7SL'); 
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/views/js/allergy.js"></script>
+    <script>
+        function setVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVh);
+        document.addEventListener('DOMContentLoaded', setVh);
+        setVh();
+    </script>
+    <link rel="stylesheet" href="/views/css/defalut.css">
+</head>
+
+<body>
+    <div class="relative flex flex-col items-center justify-start gap-5 overflow-x-hidden overflow-y-hidden w-full full-height text-[20px] text-gray-700 bg-gray-100">
+        <div id="TOP_AREA" class="relative flex flex-row flex-nowrap flex-grow-0 flex-shrink-0 basis-auto items-end justify-start w-full h-[80px] max-w-[600px] sm:w-[100%] md:w-[70%] lg:w-[50%] overflow-x-hidden overflow-y-hidden px-[20px]">
+            <img src="/resources/do_logo.png" width="32" height="32" onclick="location.href='/'">
+        </div>
+
+        <div id="CONTENT_AREA"
+            class="relative flex flex-col flex-nowrap flex-grow flex-shrink-0 basis-0 items-start justify-start w-full h-[1fr] max-w-[600px] sm:w-[100%] md:w-[70%] lg:w-[50%] overflow-x-auto overflow-y-auto px-[20px] space-y-5">
+            <div class="flex flex-col space-y-2 w-full h-fit">
+                <span class="text-[22px] sm:text-[24px] text-gray-600 pretendard-600 leading-none">해당되는 알레르기 식품을 선택해주세요.</span>
+                <span class="text-[20px] sm:text-[22px] text-gray-500 pretendard-500 leading-none">식단에 따라 미리 알려드릴게요.</span>
+            </div>
+            <div id="allergy-select" class="flex flex-row flex-wrap gap-3 w-full h-fit bg-white px-4 py-3 rounded-xl">
+                <span data-value="1" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">난류
+                    (계란)</span>
+                <span data-value="2" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">우유</span>
+                <span data-value="3" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">메밀</span>
+                <span data-value="4" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">땅콩</span>
+                <span data-value="5" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">대두</span>
+                <span data-value="6" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">밀</span>
+                <span data-value="7" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">고등어</span>
+                <span data-value="8" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">게</span>
+                <span data-value="9" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">새우</span>
+                <span data-value="10" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">돼지고기</span>
+                <span data-value="11" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">복숭아</span>
+                <span data-value="12" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">토마토</span>
+                <span data-value="13" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">아황산염</span>
+                <span data-value="14" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">호두</span>
+                <span data-value="15" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">닭고기</span>
+                <span data-value="16" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">소고기</span>
+                <span data-value="17" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">오징어</span>
+                <span data-value="18" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">조개류
+                    (굴·전복·홍합)</span>
+                <span data-value="19" onclick="toggleAllergy(this)"
+                    class="cursor-pointer rounded-lg border bg-white px-3 py-1 text-[16px] sm:text-[18px] text-gray-500 pretendard-600 hover:bg-gray-50 active:scale-95 transition-all ease-in-out duration-100">잣</span>
+            </div>
+        </div>
+
+        <div id="BOTTOM_AREA" class="relative flex flex-col flex-nowrap flex-grow-0 flex-shrink-0 basis-auto items-start justify-end w-full sm:w-[100%] md:w-[70%] lg:w-[50%] h-[100px] max-w-[600px] overflow-x-hidden overflow-y-hidden px-[20px] pb-[50px] space-y-5">
+            <button class="w-[100%] h-[48px] sm:h-[54px] text-[18px] sm:text-[20px] text-white text-center pretendard-500 rounded-[18px] bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all duration-100 ease-in-out" onclick="submitAllergy()">
+                확인
+            </button>
+        </div>
+    </div>
+
+</body>
+
+</html>

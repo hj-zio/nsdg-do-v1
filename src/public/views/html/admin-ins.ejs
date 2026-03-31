@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/resources/do_circle.svg">
+    <title>DO :: 관리자</title>
+
+    <meta name="title" content="DO">
+    <meta name="description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:title" content="DO">
+    <meta property="og:description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:image" content="/resources/og_image.png">
+    <meta property="og:url" content="v5.dghs.site">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.1/js/dataTables.min.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCZ7CDL7SL"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-KCZ7CDL7SL'); 
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/views/js/admin-ins.js"></script>
+    <script>
+        function setVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVh);
+        document.addEventListener('DOMContentLoaded', setVh);
+        setVh();
+    </script>
+    <link rel="stylesheet" href="/views/css/defalut.css">
+</head>
+
+<body class="h-screen">
+    <div class="flex h-full">
+        <!-- 사이드바 -->
+        <div class="w-1/6 h-full p-4 bg-gray-0">
+            <div class="px-2 py-4">
+                <img src="/resources/do_logo.png" width="25" height="25" onclick="location.href='/admin'">
+            </div>
+            <ul class="mt-3">
+                <li>
+                    <a class="flex items-center p-2 rounded text-[16px] text-gray-600 pretendard-600">
+                        검색
+                    </a>
+                    <a href="/admin"
+                        class="flex items-center p-2 py-2 my-2 rounded text-[18px] text-gray-700 pretendard-600 hover:bg-blue-100 hover:text-blue-600">
+                        <span class="text-[18px] me-2 tossface">👥</span>
+                        유저 검색
+                    </a>
+                    <a href="/admin/db"
+                        class="flex items-center p-2 py-2 my-2 rounded text-[18px] text-gray-700 pretendard-600 hover:bg-blue-100 hover:text-blue-600">
+                        <span class="text-[18px] me-2 tossface">🔍</span>
+                        DB 검색
+                    </a>
+
+                    <a class="flex items-center p-2 mt-2 rounded text-[16px] text-gray-600 pretendard-600">
+                        관리
+                    </a>
+                    <a href="/admin/server"
+                        class="flex items-center p-2 py-2 my-2 rounded text-[18px] text-gray-700 pretendard-600 hover:bg-blue-100 hover:text-blue-600">
+                        <span class="text-[18px] me-2 tossface">🖥️</span>
+                        서버 관리
+                    </a>
+                    <a href="/admin/ins"
+                        class="flex items-center p-2 py-2 my-2 rounded text-[18px] text-gray-700 pretendard-600 hover:bg-blue-100 hover:text-blue-600">
+                        <span class="text-[18px] me-2 tossface">🛡️</span>
+                        점검 관리
+                    </a>
+                    <a href="/admin/meal"
+                        class="flex items-center p-2 py-2 my-2 rounded text-[18px] text-gray-700 pretendard-600 hover:bg-blue-100 hover:text-blue-600">
+                        <span class="text-[18px] me-2 tossface">🥄</span>
+                        급식 관리
+                    </a>
+                    <a href="/admin/charge"
+                        class="flex items-center p-2 py-2 my-2 rounded text-[18px] text-gray-700 pretendard-600 hover:bg-blue-100 hover:text-blue-600">
+                        <span class="text-[18px] me-2 tossface">💳</span>
+                        충전 관리
+                    </a>
+                    <a href="/admin/mealRating"
+                        class="flex items-center p-2 py-2 my-2 rounded text-[18px] text-gray-700 pretendard-600 hover:bg-blue-100 hover:text-blue-600">
+                        <span class="text-[18px] me-2 tossface">📊</span>
+                        급식 평가
+                    </a>
+                    <a href="/admin/lostItem"
+                        class="flex items-center p-2 py-2 rounded text-[18px] text-gray-700 pretendard-600 hover:bg-blue-100 hover:text-blue-600">
+                        <span class="text-[18px] me-2 tossface">🪧</span>
+                        분실물 관리
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 메인 -->
+        <div class="w-5/6 h-full px-5 bg-gray-100">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center justify-between px-5 py-6 text-[24px] text-gray-800 pretendard-700">
+                    <span>점검 관리</span>
+                    <button
+                        class="px-3 py-2 rounded bg-blue-100 text-[16px] text-blue-600 pretendard-600 hover:scale-95 active:scale-90 transition-all duration-100 ease-in-out"
+                        onclick="registerInsSchedule()">
+                        설정하기
+                    </button>
+                </div>
+                <!-- 컨테이너 -->
+                <div class="flex flex-col max-h-screen px-5 py-3 mb-3 bg-white rounded-md overflow-hidden">
+                    <div id="condition" class="flex-shrink-0 mt-3">
+                        <div class="flex border-t border-gray-300">
+                            <div class="flex-1 px-4 py-3 bg-gray-100 text-gray-700">점검 ID</div>
+                            <div class="flex-1 px-4 py-3 bg-white text-gray-700">
+                                <input id="ins-id"
+                                    class="w-full p-2 border border-gray-300 bg-white rounded-md appearance-none outline-none"
+                                    placeholder="점검 ID를 입력하세요." />
+                            </div>
+                            <div class="flex-1 px-4 py-3 bg-gray-100 text-gray-700">점검 엔드포인트 *</div>
+                            <div class="flex-1 px-4 py-3 bg-white text-gray-700">
+                                <input id="ins-endpoint"
+                                    class="w-full p-2 border border-gray-300 bg-white rounded-md appearance-none outline-none"
+                                    placeholder="점검 엔드포인트를 입력하세요." />
+                            </div>
+                        </div>
+                        <div class="flex border-t border-gray-300">
+                            <div class="flex-1 px-4 py-3 bg-gray-100 text-gray-700">점검 유형 *</div>
+                            <div class="flex-1 px-4 py-3 bg-white text-gray-700">
+                                <div class="flex items-center space-x-2">
+                                    <select id="ins-type"
+                                        class="w-full p-2 border border-gray-300 bg-white rounded-md appearance-none outline-none">
+                                        <option value="정기점검">정기점검</option>
+                                        <option value="수시점검">수시점검</option>
+                                        <option value="긴급점검">긴급점검</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex-1 px-4 py-3 bg-gray-100 text-gray-700">점검 상태 *</div>
+                            <div class="flex-1 px-4 py-3 bg-white text-gray-700">
+                                <div class="flex items-center space-x-2">
+                                    <select id="ins-status"
+                                        class="w-full p-2 border border-gray-300 bg-white rounded-md appearance-none outline-none">
+                                        <option value="pending">대기</option>
+                                        <option value="in_progress">진행</option>
+                                        <option value="completed">완료</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex border-y border-gray-300">
+                            <div class="flex-1 px-4 py-3 bg-gray-100 text-gray-700">점검 시작 *</div>
+                            <div class="flex-1 px-4 py-3 bg-white text-gray-700">
+                                <input id="ins-startDate"
+                                    class="w-full p-2 border border-gray-300 bg-white rounded-md appearance-none outline-none"
+                                    placeholder="YYYY-MM-DD HH:MM" />
+                            </div>
+                            <div class="flex-1 px-4 py-3 bg-gray-100 text-gray-700">점검 종료 *</div>
+                            <div class="flex-1 px-4 py-3 bg-white text-gray-700">
+                                <input id="ins-endDate"
+                                    class="w-full p-2 border border-gray-300 bg-white rounded-md appearance-none outline-none"
+                                    placeholder="YYYY-MM-DD HH:MM" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="result" class="flex-1 min-h-0 mt-3 overflow-auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

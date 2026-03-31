@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/resources/do_circle.svg">
+    <title>DO: 선택과목</title>
+
+    <meta name="title" content="DO">
+    <meta name="description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:title" content="DO">
+    <meta property="og:description" content="논산대건고등학교 인트라넷 DO 입니다.">
+    <meta property="og:image" content="/resources/og_image.png">
+    <meta property="og:url" content="v5.dghs.site">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCZ7CDL7SL"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-KCZ7CDL7SL'); 
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/views/js/teacherChoose.js"></script>
+    <script>
+        function setVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVh);
+        document.addEventListener('DOMContentLoaded', setVh);
+        setVh();
+    </script>
+    <link rel="stylesheet" href="/views/css/defalut.css">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" media="print"
+        onload="this.media='all'">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Bootstrap JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <!-- Toast -->
+    <link rel="stylesheet" type="text/css" href="https://gcore.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+        onload="this.media='all'">
+    <script async type="text/javascript" src="https://gcore.jsdelivr.net/npm/toastify-js"></script>
+    <script type="text/javascript" src="/views/js/common.js"></script>
+    <link rel="stylesheet" href="/views/css/common.css">
+
+    <style>
+        .border-double-top {
+            border-top: 3px dashed black;
+        }
+
+        .border-double-bottom {
+            border-bottom: 3px dashed black;
+        }
+
+        .border-double-left {
+            border-left: 3px dashed black;
+        }
+
+        .border-double-right {
+            border-right: 3px dashed black;
+        }
+
+        .--border-top {
+            border-top: 5px black;
+        }
+
+        .--border-bottom {
+            border-bottom: 5px black;
+        }
+
+        .--border-left {
+            border-left: 5px black;
+        }
+
+        .--border-right {
+            border-right: 5px black;
+        }
+
+        .--bg-gray {
+            background-color: #d1d8e0 !important;
+        }
+
+        .--bg-red {
+            background-color: rgba(231, 76, 60, 0.6) !important;
+        }
+
+        .--bg-green {
+            background-color: #aae9a4 !important;
+        }
+
+        table,
+        th,
+        td {
+            border: 3.5px double RGB(185, 185, 185) !important;
+            border-collapse: none;
+        }
+
+        th,
+        td {
+            padding: 7px !important;
+        }
+
+        .button {
+            border: none !important;
+            box-shadow: none !important;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid row m-0 p-0 --border-gradient --vh-99">
+        <!-- 콘텐츠 박스 -->
+        <div id="content_box" class="container-fluid row col-12 m-0 p-3 --bg-default">
+            <div class="col-12 mb-4">
+                <div class="shadow-lg rounded-3 mb-3 p-4 --bg-white">
+                    <div id="admin_content">
+
+                        <!-- Modal -->
+                        <div id="admin_modal" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-card position-fixed"
+                                style="max-width: 500px; max-height: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <header class="modal-card-head p-4">
+                                    <p class="modal-card-title m-0 align-items-center --f-bold --fs-20">선택과목 현황</p>
+                                </header>
+                                <section class="modal-card-body p-4 --fs-16">
+                                    <div id="admin_data" class=""></div>
+                                </section>
+                                <footer class="modal-card-foot p-4">
+                                    <div class="buttons">
+                                        <button class="button --f-midium" onclick="closeModal()">닫기</button>
+                                    </div>
+                                </footer>
+                            </div>
+                        </div>
+                        <button class="button is-light is-link --f-semibold --fs-18 rounded-4 ps-3 pe-3 mb-2"
+                            onclick="location.href='/teacher/choose/download';createToast('success', '엑셀 파일을 만들고 있습니다. 잠시만 기다려주세요.')"><i
+                                class="bi bi-file-earmark-arrow-down-fill ms-1 me-3"></i></i>
+                            엑셀파일 다운로드
+                        </button>
+                        <table class="table is-striped is-hoverable --fs-13">
+                            <thead>
+                                <tr>
+                                    <th class="--fs-15">이름</th>
+                                    <th class="--fs-15">학번</th>
+                                    <th class="--fs-15">이메일</th>
+                                    <th class="--fs-15">제출시각</th>
+                                    <th class="--fs-15"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="memberInfo">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

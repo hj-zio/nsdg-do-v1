@@ -2,6 +2,7 @@
 
 const notice = {
     client: {
+        BANNED_USER: '서비스 이용이 제한된 사용자에요.',
         SUCCESS: '정상적으로 처리했어요.',
         PAY_SUCCESS: '결제를 완료했어요.',
         REQ_ERROR: '요청을 처리할 수 없어요.',

@@ -20,7 +20,7 @@ passport.use(
         {
             clientID: keys.google.ID,
             clientSecret: keys.google.SECRET,
-            callbackURL: process.env.NODE_ENV === 'production' ? 'https://nsdg.site/google/callback' : 'http://localhost:3000/google/callback', 
+            callbackURL: process.env.NODE_ENV === 'production' ? 'https://nsdg.cloud/google/callback' : 'http://localhost:3000/google/callback', 
             passReqToCallback: true,
         },
         async function (request, accessToken, refreshToken, profile, done) {

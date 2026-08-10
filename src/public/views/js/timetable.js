@@ -80,7 +80,9 @@ function shortenSubjectName(subject) {
         .replace('독서와작문', '독작')
         .replace('과학과제연구', '과과연')
         .replace('현대사회와윤리', '현사윤')
-        .replace('세계시민과지리', '세지');
+        .replace('세계시민과지리', '세지')
+        .replace('고전문학감상', '고문')
+        .replace('정보처리와관리', '정처관');
 }
 
 async function getUserName() {

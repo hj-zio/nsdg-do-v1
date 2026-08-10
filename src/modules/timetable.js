@@ -13,7 +13,7 @@ const timetableData_3 = [ { "grade": 3, "class": 1, "date": "20240304", "period"
 
 /** 과목별 코드 */
 const subjectList_grade2 = { subject1: "주제탐구독서", subject2: "인공지능수학", subject3: "영어발표와토론", subject4: "세계시민과지리", subject5: "세계사", subject6: "사회와문화", subject7: "정치", subject8: "현대사회와윤리", subject9: "물리학1", subject10: "물리학2", subject11: "화학", subject12: "생명과학", subject13: "지구과학", subject14: "프로그래밍1", subject15: "프로그래밍2", subject16: "일본어", subject17: "중국어", subject18: "교육의이해", subject19: "인간과철학", subject20: "논술", subject21: "인간과심리", subject22: "음악연주와창작", subject23: "미술창작", subject24: "독서와작문", subject25: "영어Ⅰ", subject26: "대수", subject27: "체육1"};
-const subjectList_grade3 = { subject1: "고전문학감상1", subject2: "고전문학감상2", subject3: "심화수학Ⅰ1", subject4: "심화수학Ⅰ2", subject5: "영어권문화1", subject6: "영어권문화2", subject7: "심화영어독해Ⅰ", subject8: "사회과제연구", subject9: "여행지리", subject10: "융합과학", subject11: "과학사", subject12: "정보처리와관리1", subject13: "정보처리와관리2", subject14: "음악연주", subject15: "미술창작", subject16: "일본문화", subject17: "중국문화", subject18: "진로", subject19: "운동과건강", subject20: "보건"};
+const subjectList_grade3 = { subject1: "고전문학감상1", subject2: "고전문학감상2", subject3: "심화수학Ⅰ1", subject4: "심화수학Ⅰ2", subject5: "영어권문화1", subject6: "영어권문화2", subject7: "심화영어독해", subject8: "사회과제연구", subject9: "여행지리", subject10: "융합과학", subject11: "과학사", subject12: "정보처리와관리1", subject13: "정보처리와관리2", subject14: "음악연주", subject15: "미술창작", subject16: "일본문화", subject17: "중국문화", subject18: "진로", subject19: "운동과건강", subject20: "보건"};
 
 function getValidClasses(classNum) {
     if (classNum % 2 === 0) {

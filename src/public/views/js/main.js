@@ -213,13 +213,21 @@ function shortenSubjectName(subject) {
         .replace('정보과학', '정보과')
         .replace('운동과건강', '운동')
         .replace('문학과매체', '문학')
-        .replace('심화수학', '심수')
         .replace('수학과제탐구', '수과탐')
         .replace('영어권문화', '영문')
         .replace('심화영어독해', '심영독')
         .replace('사회과제연구', '사과연')
         .replace('융합과학', '융과')
         .replace('심화영어', '심영')
+        .replace('음악연주와창작', '음연창')
+        .replace('주제탐구독서', '주탐독')
+        .replace('독서와작문', '독작')
+        .replace('과학과제연구', '과과연')
+        .replace('현대사회와윤리', '현사윤')
+        .replace('세계시민과지리', '세지')
+        .replace('고전문학감상', '고문')
+        .replace('정보처리와관리', '정처관')
+        .replace('여행지리', '여지');
 }
 
 function getCurrentWeekRange() {

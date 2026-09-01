@@ -88,7 +88,26 @@ function shortenSubjectName(subject) {
         .replace('세계시민과지리', '세지')
         .replace('고전문학감상', '고문')
         .replace('정보처리와관리', '정처관')
-        .replace('여행지리', '여지');
+        .replace('여행지리', '여지')
+        .replace('교육의이해', '교육')
+        .replace('인간과철학', '철학')
+        .replace('인간과심리', '심리')
+        .replace('매체의사소통', '매체')
+        .replace('독서토론과글쓰기', '독토')
+        .replace('한국지리탐구', '한지탐')
+        .replace('동아시아역사기행', '동사')
+        .replace('사회와문화', '사문')
+        .replace('법과사회', '법사')
+        .replace('역학과에너지', '역학')
+        .replace('물질과에너지', '물질')
+        .replace('세포와물질대사', '세포')
+        .replace('지구시스템과학', '지구')
+        .replace('소프트웨어와생활', '소프트')
+        .replace('일본어회화', '일회')
+        .replace('중국어회화', '중회')
+        .replace('독서(교육의이해)', '독서(교육)')
+        .replace('독서(인간과철학)', '독서(철학)')
+        .replace('독서(인간과심리)', '독서(심리)');
 }
 
 async function renderStudentList() {

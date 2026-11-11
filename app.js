@@ -28,6 +28,7 @@ const endpointLock = require('./src/middlewares/endpointLock.js');
 
 /** 모듈 불러오기 */
 const Info = require('./src/modules/info.js');
+const Meal = require('./src/modules/meal.js');
 const { collectSystemMetrics } = require('./src/modules/systemMetrics.js');
 
 /** config 불러오기 */
@@ -40,7 +41,13 @@ require('./src/redis/flushRedisLogs.js');
 
 Info.getSchoolSchedule(1, {});
 cron.schedule('0 8 * * *', async () => { /// 평일 오전 8시마다 학사일정 업데이트
+
     console.log(await Info.getSchoolSchedule(1, {}));
+}, { scheduled: true, timezone: 'Asia/Seoul' });
+
+Meal.syncMeal();
+cron.schedule('0 6 * * *', async () => {
+    await Meal.syncMeal();
 }, { scheduled: true, timezone: 'Asia/Seoul' });
 
 const app = express();

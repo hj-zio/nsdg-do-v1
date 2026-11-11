@@ -262,6 +262,13 @@ const notice = {
         }
     },
 
+    MEAL: {
+        GET_100: {
+            CODE: 'ERR_MEAL_GET_100',
+            MESSAGE: '급식을 불러올 수 없어요.'
+        }
+    },
+
     TIMETABLE: {
         GET_100: {
             CODE: 'ERR_TIMETABLE_GET_100',

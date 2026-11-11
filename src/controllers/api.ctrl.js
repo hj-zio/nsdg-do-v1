@@ -276,24 +276,14 @@ const output = {
     getMeal: async (req, res) => {
         try {
             const trace = req.trace;
-            const { startDate, endDate } = req.query;
+            const { startDate } = req.query;
 
-            const query = await db.querySQL('SELECT data FROM MEALDB WHERE startDate = ? AND endDate = ?', [startDate, endDate], trace);
-            if (!query) {
-                await recordUserLog(req, trace, 'FAIL', '급식 API 호출');
-                await res.send({
-                    success: false,
-                    data: null,
-                    message: notice.client.QUERY_ERROR,
-                    error: null
-                });
-                return;
-            }
+            const meal = await Meal.getWeeklyMeal(startDate);
 
             await recordUserLog(req, trace, 'SUCCESS', '급식 API 호출');
             await res.send({
                 success: true,
-                data: JSON.parse(query[0].data),
+                data: meal,
                 message: notice.client.SUCCESS,
                 error: null
             });
@@ -309,7 +299,6 @@ const output = {
             });
         }
     },
-
     getSchedule: async (req, res) => {
         try {
             const trace = req.trace;

@@ -1,5 +1,5 @@
 'use strict';
-
+const Meal = require('../modules/meal.js');
 const db = require('../config/db.js');
 const { keys } = require('../config/keys.js');
 const { notice } = require('../config/notice.js');

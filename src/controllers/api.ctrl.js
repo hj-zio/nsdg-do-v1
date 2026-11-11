@@ -1,5 +1,5 @@
 'use strict';
-const Meal = require('../modules/meal.js');
+
 const db = require('../config/db.js');
 const { keys } = require('../config/keys.js');
 const { notice } = require('../config/notice.js');
@@ -276,14 +276,24 @@ const output = {
     getMeal: async (req, res) => {
         try {
             const trace = req.trace;
-            const { startDate } = req.query;
+            const { startDate, endDate } = req.query;
 
-            const meal = await Meal.getWeeklyMeal(startDate);
+            const query = await db.querySQL('SELECT data FROM MEALDB WHERE startDate = ? AND endDate = ?', [startDate, endDate], trace);
+            if (!query) {
+                await recordUserLog(req, trace, 'FAIL', '급식 API 호출');
+                await res.send({
+                    success: false,
+                    data: null,
+                    message: notice.client.QUERY_ERROR,
+                    error: null
+                });
+                return;
+            }
 
             await recordUserLog(req, trace, 'SUCCESS', '급식 API 호출');
             await res.send({
                 success: true,
-                data: meal,
+                data: JSON.parse(query[0].data),
                 message: notice.client.SUCCESS,
                 error: null
             });
@@ -299,6 +309,7 @@ const output = {
             });
         }
     },
+
     getSchedule: async (req, res) => {
         try {
             const trace = req.trace;
